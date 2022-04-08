@@ -1,23 +1,42 @@
 import React, { useState } from "react";
 import Team from "./Team/Team";
-import avatar from '../../Images/img_avatar.png'
+import './Teams.css'
+import { useSelector } from "react-redux";
+import avatar from "../../Images/img_avatar.png";
+import { Link } from "react-router-dom";
 const Teams = () => {
-    
+  const teams = useSelector((state) => state.team.teams);
+
+  const handleMembers = () => {
+    console.log("handle Members");
+  };
   return (
     <>
-    <div style={{overflowX:"auto"}}>
-          <table>
-              <tr>
-                  <th>Team Name</th>    
-                  <th>Total Members</th>
-                  <th>Join Now</th>
-              </tr>
-            
-          </table>
+      {/* <button onClick={handleMembers}>View Members</button> */}
+      {/*  style={{textDecoration:"none",border:'1px solid black',backgroundColor:'green',textAlign:'center'}} */}
+      <div className="navbar">
+        <Link to="/myTeam" style={{ textDecoration: "none" }}>
+          View Members
+        </Link>
       </div>
-      <Team id={1} avatar={avatar} TeamName='Engineering' TotalCount={2}/>
-      <Team id={2} avatar={avatar} TeamName='Designing' TotalCount={4}/>
-      <Team id={3} avatar={avatar} TeamName='Marketing' TotalCount={10}/>
+      <table>
+        <thead>
+          <tr>
+            <th>Team Name</th>
+            <th>Total Members</th>
+          </tr>
+        </thead>
+        <tbody>
+          {teams.map((team) => (
+            <Team
+              key={team.id}
+              id={team.id}
+              TeamName={team.name}
+              TotalCount={team.member_count}
+            />
+          ))}
+        </tbody>
+      </table>
     </>
   );
 };
