@@ -4,6 +4,7 @@ import './Teams.css'
 import { useSelector } from "react-redux";
 import avatar from "../../Images/img_avatar.png";
 import { Link } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 const Teams = () => {
   const teams = useSelector((state) => state.team.teams);
 
@@ -12,13 +13,7 @@ const Teams = () => {
   };
   return (
     <>
-      {/* <button onClick={handleMembers}>View Members</button> */}
-      {/*  style={{textDecoration:"none",border:'1px solid black',backgroundColor:'green',textAlign:'center'}} */}
-      <div className="navbar">
-        <Link to="/myTeam" style={{ textDecoration: "none" }}>
-          View Members
-        </Link>
-      </div>
+      <Navbar/>
       <table>
         <thead>
           <tr>

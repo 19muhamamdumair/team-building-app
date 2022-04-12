@@ -5,11 +5,39 @@ import App from "../App";
 import "./main.css";
 const Main = () => {
   return (
-    <div className="Main">
-      <nav className="navbar">
-        <Link to="/Teams">Teams</Link>
-      </nav>
+    <div className="main">
+    <nav class="navbar">
+      
+
+      <ul class="main_nav">
+        <li>
+        <Link to="/Teams">View Teams</Link>
+        </li>
+        <li>
+        <Link to="/create-team">Create Team</Link>
+        </li>
+        <li>
+        <Link to="/myTeam">View Members</Link>
+        </li>
+        <li>
+        <Link to="/add-member">Add Member</Link>
+        </li>
+        <li>
+        <Link to="/todo">Todo List</Link>
+        </li>
+      </ul>
+    </nav>
     </div>
+    // <div className="Main">
+    //   <nav className="navbar">
+    //     <Link to="/Teams">View Teams</Link>
+    //     <Link to="/create-team">Create Team</Link>
+    //     <Link to="/myTeam">View Members</Link>
+    //     <Link to="/add-member">Add Member</Link>
+    //     <Link to="/todo">Todo List</Link>
+
+    //   </nav>
+    // </div>
   );
 };
 

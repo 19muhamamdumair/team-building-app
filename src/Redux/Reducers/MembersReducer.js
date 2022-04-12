@@ -1,5 +1,6 @@
 import React from 'react'
 import * as actionTypes from '../Action/ActionTypes'
+import { v4 as uuidv4 } from 'uuid';
 const initialState={
     members:[
     {
@@ -105,11 +106,22 @@ const initialState={
   ]
 }
 const MembersReducer=(state=initialState,action)=>{
+ 
     if(action.type===actionTypes.CREATE_MEMBER)
     {
+      
+     
         return {
+          
             ...state,
-           members:[...state.members,action.payload]
+           members:[...state.members,{
+             id:uuidv4(),first_name:action.payload.firstName,last_name:action.payload.lastName,email:action.payload.email,
+             team:{
+               id:action.payload.teamId,
+               name:action.payload.teamName
+             }
+           }
+          ]
         }
     }
     return state

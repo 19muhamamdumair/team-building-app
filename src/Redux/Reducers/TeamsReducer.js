@@ -26,12 +26,36 @@ const initialState={
       ]
     }
 const TeamsReducer=(state=initialState,action)=>{
-  if(action.type===actionTypes.CREATE_MEMBER)
+
+  if(action.type===actionTypes.CREATE_TEAM)
   {
       return {
           ...state,
-         teams:[...state.teams,action.payload]
+         teams:[...state.teams,{
+           id:action.payload.teamId,
+           name:action.payload.teamName,
+           member_count:action.payload.memberCount
+         }]
       }
+  }
+  if(action.type===actionTypes.INCREMENT_COUNTER)
+  {
+    
+    state.teams.find((team)=>{
+      if(team.name===action.payload.teamName)
+      {
+        console.log("member_count:",team.member_count)
+        action.payload.memberCount=team.member_count+1
+        return{
+          ...state,teams:[...state.teams,
+            
+            team.member_count=action.payload.memberCount
+         
+          ]
+        }
+      }
+    })
+  
   }
   return state
 }

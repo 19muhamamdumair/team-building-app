@@ -9,12 +9,14 @@ import { Provider } from "react-redux";
 import TeamsReducer from "./Redux/Reducers/TeamsReducer";
 import MembersReducer from "./Redux/Reducers/MembersReducer";
 import thunk from "redux-thunk";
+import TodoReducer from "./Redux/Reducers/TodoReducer";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
 const rootReducer = combineReducers({
   team: TeamsReducer,
   member: MembersReducer,
+  todo:TodoReducer
 });
 
 const logger = (store) => {

@@ -1,11 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Member from "./Member/Member";
-
+import { Link } from "react-router-dom";
+import Navbar from "../../../Navbar/Navbar";
 const Members = () => {
   const members = useSelector((state) => state.member.members);
   return (
     <>
+    <Navbar/>
+     
       <table>
         <thead>
           <tr>
