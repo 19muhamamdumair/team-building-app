@@ -39,21 +39,16 @@ const TodoReducer=(state=initialState,action)=>{
     }
     if(action.type===actionTypes.UPDATE_TODO)
     {
-      
-        state.todo.find((todo)=>{
-            if(todo.id===action.payload.id)
-            {
-              console.log("UPDATE_TODO")
-              return{
-                ...state,todo:[...state.todo,
-                  
-                  todo.title=action.payload.title
-               
-                ]
-              }
-            }
-
-        } )
+            const prevState=state.todo;
+            let tempArray=[];
+            prevState.map(todo=>{
+                if(todo.id===action.payload.id){
+                    tempArray.push({...todo,title:action.payload.title})
+                }else{
+                    tempArray.push(todo)
+                }
+            })
+            state.todo=tempArray;
     }
     return state 
 }

@@ -10,6 +10,7 @@ import * as MemberAction2 from '../../Redux/Action/updateTodo'
 import Navbar from '../Navbar/Navbar';
 const Todo = () => {
     const [title,setTitle]=useState('')
+    const [isUpdated,setIsUpdated]=useState(true)
     const [userId,setUserId]=useState({id:null})
     const todos = useSelector((state) => state);
     const [latestToList,setLatestToList]=useState([]);
@@ -17,27 +18,31 @@ const Todo = () => {
    
     const dispatch=useDispatch()
     const handleChange=(e)=>{
+
         setTitle(e.target.value)
     }
     const addTodo=()=>{
         const newTodo={id:uuid(),title,done:false}
         dispatch(MemberAction.createTodo(newTodo))
     }
-    const updateId=(id)=>{
+    const updateId=(id,title)=>{
+
         console.log("UpdateId",id)
         setUserId({
             id:id
         })
+        setTitle(title)
         console.log("UserId",userId.id)
+    }
+    const updateTodo=()=>{
+        const newTodo={id:userId.id,title,done:false}
+        dispatch(MemberAction2.updateTodo(newTodo))
+        setIsUpdated(!isUpdated)
     }
     useEffect(()=>{
         setLatestToList(todos)
         console.log("todos.todo.todo",todos)
       },[todos])
-    const updateTodo=()=>{
-        const newTodo={id:userId.id,title,done:false}
-        dispatch(MemberAction2.updateTodo(newTodo))
-    }
   return (
       <>
     <Navbar/>

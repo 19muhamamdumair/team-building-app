@@ -1,11 +1,18 @@
-table {
+.members table {
     border-collapse: collapse;
     width: 100%;
   }
   
-  th, td {
+ .members th, td {
     text-align: center;
     padding: 8px;
   }
   
   tr:nth-child(even) {background-color: #f2f2f2;}
+
+  @media screen and (max-width: 600px){
+    .members table {
+      border-collapse: collapse;
+      width: 50%;
+    }
+  }

@@ -8,13 +8,13 @@ import Navbar from "../Navbar/Navbar";
 const Teams = () => {
   const teams = useSelector((state) => state.team.teams);
 
-  const handleMembers = () => {
-    console.log("handle Members");
-  };
   return (
     <>
       <Navbar/>
-      <table>
+      <div className="button">
+      <Link to="/create-team">Add Team</Link>
+      </div>
+      <table className="teams">
         <thead>
           <tr>
             <th>Team Name</th>

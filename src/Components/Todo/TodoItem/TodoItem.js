@@ -9,8 +9,21 @@ const TodoItem = ({todoList,updateId}) => {
     // console.log({latestUpdateValue})
    console.log({todoList,updateId})
   return (
-    <li className={`${todoList.done? "checked" :""}`} onClick={()=>updateId(todoList.id)}>{todoList.title}<span className='close' onClick={()=>dispatch(MemberAction.deleteTodo(todoList.id))}>x</span></li>
-  )
+    <div className="todo">
+      <li
+        className={`${todoList.done ? "checked" : ""}`}
+        onClick={() => updateId(todoList.id, todoList.title)}
+      >
+        {todoList.title}
+        <span
+          className="close"
+          onClick={() => dispatch(MemberAction.deleteTodo(todoList.id))}
+        >
+          x
+        </span>
+      </li>
+    </div>
+  );
 }
 
 export default TodoItem

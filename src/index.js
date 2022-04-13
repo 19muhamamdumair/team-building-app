@@ -30,21 +30,14 @@ const logger = (store) => {
   };
 };
 
-const store = createStore(rootReducer, applyMiddleware(logger, thunk));
+const store = createStore(rootReducer, applyMiddleware(logger,thunk));
 
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route
-        path="*"
-        element={
-          <Provider store={store}>
-            <App />
-          </Provider>
-        }
-      />
-    </Routes>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

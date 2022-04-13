@@ -7,7 +7,11 @@
     top: 0;
     
     padding: 8px 12px 8px 12px;
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.1em;
     }
     
     .close:hover {
@@ -19,7 +23,7 @@
     }
     
 
-li {
+.todo li {
     
     cursor: pointer;
     
@@ -49,7 +53,7 @@ li {
     
     /* Set all odd list items to a different color (zebra-stripes) */
     
-    li:nth-child(odd) {
+    .todo li:nth-child(odd) {
     
     background: #f9f9f9;
     
@@ -57,7 +61,7 @@ li {
     
     /* Darker background-color on hover */
     
-    li:hover {
+    .todo li:hover {
     
     background: #ddd;
     
@@ -65,7 +69,7 @@ li {
     
     /* When clicked on, add a background color and strike out text */
     
-    li.checked {
+    .todo li.checked {
     
     background: #888;
     
@@ -77,7 +81,7 @@ li {
     
     /* Add a “checked” mark when clicked on */
     
-    li.checked::before {
+    .todo li.checked::before {
     
     content: ‘’;
     
@@ -103,4 +107,12 @@ li {
     
     /* Style the close button */
     
-    
+    @media screen and (max-width:500px){
+        .close{
+           
+         
+            background-color: #e74c3c;
+        }
+      
+           
+    }

@@ -39,7 +39,7 @@ const CreateTeam = () => {
             </div>
            
             <div className="styling" style={{backgroundColor:'black',color:'white'}}>
-            <input type="submit"/>
+            <input type="submit" value={'Create Team'} style={{cursor:'pointer',height:'3em',backgroundColor:'white',fontWeight:'bold'}}/>
               {/* <Link to="/myTeam" style={{ textDecoration: "none" }} onClick={console.log("submit")}>
                 Submit
               </Link> */}

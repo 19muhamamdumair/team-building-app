@@ -8,8 +8,10 @@ const Members = () => {
   return (
     <>
     <Navbar/>
-     
-      <table>
+    <div className="button">
+      <Link to="/add-member">Add Member</Link>
+      </div>
+      <table className="members">
         <thead>
           <tr>
             <th>Member Id</th>

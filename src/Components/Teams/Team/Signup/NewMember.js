@@ -64,7 +64,7 @@ const SignUp = () => {
     <>
       <Navbar/>
       <div className="container">
-        <div className="styling" style={{backgroundColor:'black',color:'white'}}>Register Yourself</div>
+        <div className="styling" style={{  color:'white'}}>Register Yourself</div>
         <div className="content">
           <form action="#" onSubmit={submit}>
             <div className="user-details">
@@ -107,7 +107,7 @@ const SignUp = () => {
             <br />
             <br />
             <div className="styling" style={{backgroundColor:'black',color:'white'}}>
-            <input type="submit"/>
+            <input type="submit" value={'REGISTER'} style={{cursor:'pointer',height:'3em',backgroundColor:'white',fontWeight:'bold'}}/>
               {/* <Link to="/myTeam" style={{ textDecoration: "none" }} onClick={console.log("submit")}>
                 Submit
               </Link> */}
