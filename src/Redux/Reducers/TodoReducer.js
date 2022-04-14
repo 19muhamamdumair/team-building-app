@@ -1,16 +1,7 @@
 import * as actionTypes from '../Action/ActionTypes'
 const initialState={
     todo:[
-        {
-            'id':1,
-            'title':'Hit the gym',
-            'done':false
-        },
-        {
-            'id':2,
-            'title':'Go to university',
-            'done':false
-        },
+      
     ]
 }
 const TodoReducer=(state=initialState,action)=>{

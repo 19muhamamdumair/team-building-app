@@ -22,12 +22,17 @@ const Todo = () => {
         setTitle(e.target.value)
     }
     const addTodo=()=>{
-        const newTodo={id:uuid(),title,done:false}
-        dispatch(MemberAction.createTodo(newTodo))
-    }
+        if(title!=='')
+        {
+            const newTodo={id:uuid(),title,done:false}
+            dispatch(MemberAction.createTodo(newTodo))
+        
+        }
+        else{
+            alert('Input your task')
+        }
+        }
     const updateId=(id,title)=>{
-
-        console.log("UpdateId",id)
         setUserId({
             id:id
         })
@@ -35,13 +40,19 @@ const Todo = () => {
         console.log("UserId",userId.id)
     }
     const updateTodo=()=>{
-        const newTodo={id:userId.id,title,done:false}
-        dispatch(MemberAction2.updateTodo(newTodo))
-        setIsUpdated(!isUpdated)
+        if(userId.id!==null)
+        {
+            const newTodo={id:userId.id,title,done:false}
+            dispatch(MemberAction2.updateTodo(newTodo))
+            setIsUpdated(!isUpdated)
+        }
+        else{
+            alert("Select task to update")
+        }
+     
     }
     useEffect(()=>{
         setLatestToList(todos)
-        console.log("todos.todo.todo",todos)
       },[todos])
   return (
       <>

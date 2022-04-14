@@ -44,7 +44,7 @@ const TeamsReducer=(state=initialState,action)=>{
     state.teams.find((team)=>{
       if(team.name===action.payload.teamName)
       {
-        console.log("member_count:",team.member_count)
+      
         action.payload.memberCount=team.member_count+1
         return{
           ...state,teams:[...state.teams,

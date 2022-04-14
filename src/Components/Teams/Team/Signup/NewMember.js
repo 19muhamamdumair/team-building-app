@@ -3,27 +3,31 @@ import "./NewMember.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Option from "./Option";
-import * as MemberAction from '../../../../Redux/Action/createMember'
+import * as MemberAction from "../../../../Redux/Action/createMember";
 import Navbar from "../../../Navbar/Navbar";
+import Register from "../../../Register/Register";
 const SignUp = () => {
-  const [data,setData]=useState({firstName:"",lastName:"",email:"",teamName:"",teamId:0,memberCount:0})
- 
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    teamName: "",
+    teamId: 0,
+    memberCount: 0,
+  });
 
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const teams = useSelector((state) => state.team.teams);
   const changeTeam = (e) => {
-    teams.find((team)=>{
-      if(team.name===e.target.value)
-      {
-        console.log(team.id)
+    teams.find((team) => {
+      if (team.name === e.target.value) {
         setData({
           ...data,
           teamName: e.target.value,
-          teamId:team.id,
-          })
-      }})
-   
-
+          teamId: team.id,
+        });
+      }
+    });
   };
   const changeFirstName = (e) => {
     setData({
@@ -34,9 +38,8 @@ const SignUp = () => {
   const changeLastName = (e) => {
     setData({
       ...data,
-     lastName: e.target.value,
+      lastName: e.target.value,
     });
-    console.log(e.target.value);
   };
   const changeEmail = (e) => {
     setData({
@@ -44,27 +47,35 @@ const SignUp = () => {
       email: e.target.value,
     });
   };
-  const submit=(e)=>{
-    teams.find((team)=>{
-      if(team.name===data.teamName)
-      {
-        console.log("team.member_count",team.member_count)
-        setData({
-          ...data,
-          memberCount:team.member_count,
-          })
-      }})
-          
-    console.log("memberCount",data.memberCount);
-    e.preventDefault()
-    dispatch(MemberAction.createMember(data))
-    dispatch(MemberAction.incrementCounter(data))
-  }
+  const submit = (e) => {
+    if(data.firstName!==""&&data.lastName!==""&&data.email!==""&&data.teamName!="")
+    {
+      teams.find((team) => {
+        if (team.name === data.teamName) {
+          setData({
+            ...data,
+            memberCount: team.member_count,
+          });
+        }
+      });
+  
+      // e.preventDefault()
+      dispatch(MemberAction.createMember(data));
+      dispatch(MemberAction.incrementCounter(data));
+    }
+    else{
+      alert("Fill all input fields")
+      e.preventDefault()
+    }
+   
+  };
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <div className="container">
-        <div className="styling" style={{  color:'white'}}>Register Yourself</div>
+        <div className="styling" style={{ color: "white" }}>
+          Register Yourself
+        </div>
         <div className="content">
           <form action="#" onSubmit={submit}>
             <div className="user-details">
@@ -74,8 +85,8 @@ const SignUp = () => {
                   type="text"
                   placeholder="Enter Name"
                   name="fullName"
-           
                   onChange={changeFirstName}
+                  required
                 />
               </div>
               <div className="input-box">
@@ -83,8 +94,8 @@ const SignUp = () => {
                 <input
                   type="text"
                   placeholder="Enter your username"
-               
                   onChange={changeLastName}
+                  required
                 />
               </div>
               <div className="input-box">
@@ -92,26 +103,24 @@ const SignUp = () => {
                 <input
                   type="text"
                   placeholder="Enter your email"
-             
                   onChange={changeEmail}
+                  required
                 />
               </div>
             </div>
             <select className="my-menu" onChange={changeTeam}>
               <option value="0">Select Team</option>
               {teams.map((team) => (
-                <Option teamName={team.name} key={team.id} id={team.id}/>
-      
+                <Option teamName={team.name} key={team.id} id={team.id} />
               ))}
             </select>
             <br />
             <br />
-            <div className="styling" style={{backgroundColor:'black',color:'white'}}>
-            <input type="submit" value={'REGISTER'} style={{cursor:'pointer',height:'3em',backgroundColor:'white',fontWeight:'bold'}}/>
-              {/* <Link to="/myTeam" style={{ textDecoration: "none" }} onClick={console.log("submit")}>
-                Submit
-              </Link> */}
-            </div>
+     
+                <Register linkName={'/myTeam'} submit={submit} linkTitle={'REGISTER'}/>
+    
+              
+     
           </form>
         </div>
       </div>

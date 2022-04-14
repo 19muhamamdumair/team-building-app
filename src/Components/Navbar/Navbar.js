@@ -40,7 +40,7 @@ const Navbar = () => {
         
         return <NavbarComponents link={link} key={link.linkName}/>
       })}
-  <a href="javascript:void(0);" className="icon" onClick={myFunction}>
+  <a  className="icon" onClick={myFunction}>
     <i className="fa fa-bars"></i>
   </a>
 </div>

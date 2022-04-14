@@ -5,45 +5,51 @@ import { Link } from 'react-router-dom'
 import * as MemberAction from '../../../../Redux/Action/createTeam'
 import { v4 as uuidv4 } from 'uuid';
 import Navbar from '../../../Navbar/Navbar'
+import Register from '../../../Register/Register'
 const CreateTeam = () => {
     const [data,setData]=useState({teamId:uuidv4(),teamName:"",memberCount:0})
     const dispatch=useDispatch()
     const submit=(e)=>{
-        e.preventDefault()
+      if(data.teamName!=="")
+      {
         dispatch(MemberAction.createTeam(data))
+      }
+      else{
+        e.preventDefault()
+        alert("Fill all input fields")
+      }
+    
     }
     const changeTeamName=(e)=>{
         setData({
             ...data,
             teamName:e.target.value
         })
-        console.log(e.target.value)
     }
   return (
     <>
        <Navbar/>
       <div className="container">
-        <div className="styling" style={{backgroundColor:'black',color:'white'}}>Create Your Team!</div>
+        <div className="styling" style={{backgroundColor: "#333",color:'white'}}>Create Your Team!</div>
         <div className="content">
-          <form action="#" onSubmit={submit}>
+          <form action="#">
             <div className="user-details">
               <div className="input-box">
-                <span className="details">Enter Team Name</span>
+                <span className="details" >Enter Team Name</span>
                 <input
                   type="text"
                   placeholder="Enter your Team Name"
-                
+                required
                   onChange={changeTeamName}
                 />
               </div>
             </div>
            
-            <div className="styling" style={{backgroundColor:'black',color:'white'}}>
-            <input type="submit" value={'Create Team'} style={{cursor:'pointer',height:'3em',backgroundColor:'white',fontWeight:'bold'}}/>
-              {/* <Link to="/myTeam" style={{ textDecoration: "none" }} onClick={console.log("submit")}>
-                Submit
-              </Link> */}
-            </div>
+           
+            <Register linkName={'/Teams'} submit={submit} linkTitle={'CREATE TEAM'}/>
+                
+        
+          
           </form>
         </div>
       </div>

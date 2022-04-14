@@ -5,7 +5,7 @@ import "./TodoList.css";
 const TodoList = ({updateId,todo}) => {
     const todos = useSelector((state) => state.todo.todo);
   useEffect(()=>{
-    console.log("todos",todo)
+
    
   },[todos])
  
