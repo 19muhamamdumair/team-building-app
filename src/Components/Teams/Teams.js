@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Team from "./Team/Team";
-import './Teams.css'
+import "./Teams.css";
 import { useSelector } from "react-redux";
 import avatar from "../../Images/img_avatar.png";
 import { Link } from "react-router-dom";
@@ -10,9 +10,9 @@ const Teams = () => {
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <div className="button">
-      <Link to="/create-team">Add Team</Link>
+        <Link to="/create-team">Add Team</Link>
       </div>
       <table className="teams">
         <thead>

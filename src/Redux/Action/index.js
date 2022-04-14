@@ -1,1 +1,0 @@
-export {createMember} from './createMember'

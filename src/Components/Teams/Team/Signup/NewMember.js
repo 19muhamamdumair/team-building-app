@@ -48,8 +48,20 @@ const SignUp = () => {
     });
   };
   const submit = (e) => {
-    if(data.firstName!==""&&data.lastName!==""&&data.email!==""&&data.teamName!="")
-    {
+    if (
+      data.firstName === "" ||
+      data.lastName === "" ||
+      data.email === "" 
+    ) {
+      alert("Fill all input fields");
+      e.preventDefault();
+    
+     }
+    else if(  data.teamName === ""){
+      alert("Select Your Team");
+      e.preventDefault();
+    }
+     else {
       teams.find((team) => {
         if (team.name === data.teamName) {
           setData({
@@ -58,16 +70,12 @@ const SignUp = () => {
           });
         }
       });
-  
+
       // e.preventDefault()
       dispatch(MemberAction.createMember(data));
       dispatch(MemberAction.incrementCounter(data));
+    
     }
-    else{
-      alert("Fill all input fields")
-      e.preventDefault()
-    }
-   
   };
   return (
     <>
@@ -108,19 +116,26 @@ const SignUp = () => {
                 />
               </div>
             </div>
-            <select className="my-menu" onChange={changeTeam}>
-              <option value="0">Select Team</option>
-              {teams.map((team) => (
-                <Option teamName={team.name} key={team.id} id={team.id} />
-              ))}
-            </select>
-            <br />
-            <br />
-     
-                <Register linkName={'/myTeam'} submit={submit} linkTitle={'REGISTER'}/>
-    
-              
-     
+            <div className="input-box">
+              <span className="details">Select Team</span>
+              <select className="my-menu" onChange={changeTeam}>
+                <option
+                  value="0"
+                  style={{ color: "white", backgroundColor: "#333" }}
+                >
+                  Select Team
+                </option>
+                {teams.map((team) => (
+                  <Option teamName={team.name} key={team.id} id={team.id} />
+                ))}
+              </select>
+            </div>
+                  
+            <Register
+              linkName={"/myTeam"}
+              submit={submit}
+              linkTitle={"REGISTER"}
+            />
           </form>
         </div>
       </div>

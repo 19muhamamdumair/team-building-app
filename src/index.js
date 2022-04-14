@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createRoot } from "react-dom/client";
@@ -16,21 +15,21 @@ const root = createRoot(container);
 const rootReducer = combineReducers({
   team: TeamsReducer,
   member: MembersReducer,
-  todo:TodoReducer
+  todo: TodoReducer,
 });
 
 const logger = (store) => {
   return (next) => {
     return (action) => {
-      console.log("[MidlleWare] Dispatching", action);
+      // console.log("[MidlleWare] Dispatching", action);
       const result = next(action);
-      console.log("[MiddleWare] next state", store.getState());
+      // console.log("[MiddleWare] next state", store.getState());
       return result;
     };
   };
 };
 
-const store = createStore(rootReducer, applyMiddleware(logger,thunk));
+const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 
 root.render(
   <Provider store={store}>

@@ -114,6 +114,13 @@ hr {
 .my-menu{
   color: #000000;
   background-color: white;
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  cursor: pointer;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */

@@ -4,10 +4,6 @@ import './TodoItem.css'
 import * as MemberAction from '../../../Redux/Action/deleteTodo'
 const TodoItem = ({todoList,updateId}) => {
     const dispatch=useDispatch()
-
-    // const latestUpdateValue=useSelector(state=>state.todo.todo);
-    // console.log({latestUpdateValue})
-   console.log({todoList,updateId})
   return (
     <div className="todo">
       <li

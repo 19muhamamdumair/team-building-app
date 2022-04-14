@@ -7,23 +7,22 @@ const Navbar = () => {
   // const shownav = () => {
   //   setShowBar(!showBar);
   // };
-  const links=[
+  const links = [
     {
-      linkName:'/Teams',
-      title:' View Teams'
+      linkName: "/Teams",
+      title: " View Teams",
     },
-   
+
     ,
     {
-      linkName:'/myTeam',
-      title:'View Members'
-    }
-   ,
+      linkName: "/myTeam",
+      title: "View Members",
+    },
     {
-      linkName:'/todo',
-      title:'Todo List'
-    }
-  ]
+      linkName: "/todo",
+      title: "Todo List",
+    },
+  ];
   function myFunction() {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
@@ -35,41 +34,18 @@ const Navbar = () => {
 
   return (
     <div className="body">
-    <div className="topnav" id="myTopnav">
-      {links.map((link)=>{
-        
-        return <NavbarComponents link={link} key={link.linkName}/>
-      })}
-  <a  className="icon" onClick={myFunction}>
-    <i className="fa fa-bars"></i>
-  </a>
-</div>
-</div>
-    // <nav className="navbar">
-    //   <button className="navbar_toggle" onClick={shownav}>
-    //     <i id="bar" className="fas fa-bars"></i>
-    //   </button>
+      <div className="topnav" id="myTopnav">
+        {links.map((link) => {
+          return <NavbarComponents link={link} key={link.linkName} />;
+        })}
+        <a className="icon" onClick={myFunction}>
+          <i className="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+   
 
-    //   {showBar ? (
-    //     <ul className="main_nav">
-    //       <li>
-    //    linkName
-    //       </li>
-    //       <li>
-    //         <Link to="/create-team">Create Team</Link>
-    //       </li>
-    //       <li>
-    //         <Link to="/myTeam">View Members</Link>
-    //       </li>
-    //       <li>
-    //         <Link to="/add-member">Add Member</Link>
-    //       </li>
-    //       <li>
-    //         <Link to="/todo">Todo List</Link>
-    //       </li>
-    //     </ul>
-    //   ) : null}
-    // </nav>
+   
   );
 };
 
