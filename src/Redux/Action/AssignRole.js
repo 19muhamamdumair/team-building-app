@@ -1,7 +1,7 @@
 import * as ActionTypes from './ActionTypes'
-export const updateTodo =(data)=>{
+export const assignRole =(data)=>{
     return{
-        type:ActionTypes.UPDATE_TODO,
+        type:ActionTypes.ASSIGN_ROLE,
         payload:data
     }
 }

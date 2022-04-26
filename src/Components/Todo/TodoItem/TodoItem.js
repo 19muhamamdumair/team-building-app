@@ -1,9 +1,7 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import './TodoItem.css'
-import * as MemberAction from '../../../Redux/Action/deleteTodo'
-const TodoItem = ({todoList,updateId}) => {
-    const dispatch=useDispatch()
+const TodoItem = ({todoList,updateId,deleteTask}) => {
+ 
   return (
     <div className="todo">
       <li
@@ -13,7 +11,8 @@ const TodoItem = ({todoList,updateId}) => {
         {todoList.title}
         <span
           className="close"
-          onClick={() => dispatch(MemberAction.deleteTodo(todoList.id))}
+          onClick={() => deleteTask(todoList.id)}
+          // onClick={() => dispatch(MemberAction.deleteTodo(todoList.id))}
         >
           x
         </span>

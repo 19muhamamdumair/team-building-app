@@ -11,3 +11,9 @@ export const incrementCounter=(data)=>{
         payload:data
     }
 }
+export const assignTeam=(data)=>{
+    return{
+        type:ActionTypes.ASSIGN_TEAM,
+        payload:data
+    }
+}

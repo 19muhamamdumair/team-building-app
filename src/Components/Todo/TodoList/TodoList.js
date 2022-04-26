@@ -2,17 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import TodoItem from "../TodoItem/TodoItem";
 import "./TodoList.css";
-const TodoList = ({updateId,todo}) => {
-    const todos = useSelector((state) => state.todo.todo);
-  useEffect(()=>{
+const TodoList = ({updateId,todos,deleteTask}) => {
 
-   
-  },[todos])
  
   return (
     <ul id="todo-list">
       {todos.map((todo) => {
-        return <TodoItem updateId={updateId} todoList={todo} key={todo.id} />;
+        return <TodoItem updateId={updateId} todoList={todo} key={todo.id} deleteTask={deleteTask} />;
       })}
     </ul>
   );

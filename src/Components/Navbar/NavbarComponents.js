@@ -3,12 +3,16 @@ import { Link } from 'react-router-dom'
 
 const NavbarComponents = ({link}) => {
   return (
+    
+    <>
     <Link
       to={link.linkName}
-      className={`${link.linkName === "/Teams" ? "active" : ""}`}
+      className={`${link.linkName === "/" ? "active" : ""}`}
     >
       {link.title}
     </Link>
+   
+    </>
   );
 }
 

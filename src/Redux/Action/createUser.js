@@ -1,7 +1,7 @@
 import * as ActionTypes from './ActionTypes'
-export const deleteTodo =(data)=>{
+export const createUser =(data)=>{
     return{
-        type:ActionTypes.DELETE_TODO,
+        type:ActionTypes.CREATE_USER,
         payload:data
     }
 }

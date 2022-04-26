@@ -9,21 +9,23 @@ import TeamsReducer from "./Redux/Reducers/TeamsReducer";
 import MembersReducer from "./Redux/Reducers/MembersReducer";
 import thunk from "redux-thunk";
 import TodoReducer from "./Redux/Reducers/TodoReducer";
+import UserRoleReducer from './Redux/Reducers/UserRoleReducer'
+
 const container = document.getElementById("root");
 const root = createRoot(container);
-
 const rootReducer = combineReducers({
   team: TeamsReducer,
   member: MembersReducer,
   todo: TodoReducer,
+  role:UserRoleReducer
 });
 
 const logger = (store) => {
   return (next) => {
     return (action) => {
-      // console.log("[MidlleWare] Dispatching", action);
+      console.log("[MidlleWare] Dispatching", action);
       const result = next(action);
-      // console.log("[MiddleWare] next state", store.getState());
+      console.log("[MiddleWare] next state", store.getState());
       return result;
     };
   };
