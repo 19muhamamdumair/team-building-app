@@ -4,7 +4,7 @@ import InputForm from "../InputForm/InputForm";
 import Navbar from "../Navbar/Navbar";
 import Register from "../Register/Register";
 import image from "../../Images/img_avatar2.png";
-import * as UserAction from "../../Redux//Action/createUser";
+import * as UserAction from "../../Redux/Action/createUser";
 import { v4 as uuidv4 } from "uuid";
 import "../Login/Login.css";
 import { useDispatch, useSelector } from "react-redux";

@@ -9,6 +9,7 @@ import Navbar from "../Navbar/Navbar";
 import Header from "../Todo/Header/Header";
 
 import RoleList from './RoleList/RoleList'
+import { Navigate, useNavigate } from "react-router-dom";
 const UserRole = () => {
   const [title, setTitle] = useState("");
   const [roleId, setRoleId] = useState({ id: null });
@@ -20,7 +21,7 @@ const UserRole = () => {
   });
   const [deleteRoleId,setDeleteID]=useState(null)
   const roles = useSelector((state) => state.role.userRoles);
-
+const navigate=useNavigate()
   const dispatch = useDispatch();
   const handleChange = (e) => {
     setData({
@@ -41,9 +42,9 @@ const UserRole = () => {
     setTitle("")
   };
   const updateId = (id, title) => {
-    debugger;
+    // debugger;
    
-    if(deleteRoleId!==null)
+    if(deleteRoleId===null)
     {
        
         setRoleId({
@@ -65,12 +66,25 @@ const UserRole = () => {
     }
     setTitle("")
   };
-  const deleteRole=(id)=>{
+  async function deleteRole(id) {
+    // debugger
+    let promise = new Promise((resolve, reject) => {
       setDeleteID(id)
-
+      setTimeout(() => resolve(setTitle("")), 1000)
+     
+    });
+    let res = await promise; // wait until the promise resolves (*)
+    // navigate('/loading...')
     dispatch(RoleAction.deleteUserRole(id))
-
+   
+  
   }
+  // const deleteRole=(id)=>{
+  //     setDeleteID(id)
+
+  //   dispatch(RoleAction.deleteUserRole(id))
+
+  // }
   return (
     <>
       <Navbar />

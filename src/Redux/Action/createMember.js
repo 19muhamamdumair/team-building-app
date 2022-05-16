@@ -6,6 +6,7 @@ export const createMember =(data)=>{
     }
 }
 export const incrementCounter=(data)=>{
+    console.log("incrementCounter")
     return{
         type:ActionTypes.INCREMENT_COUNTER,
         payload:data

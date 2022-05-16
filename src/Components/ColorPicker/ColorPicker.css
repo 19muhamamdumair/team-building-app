@@ -1,0 +1,16 @@
+.colorPicker{
+    margin-left: 1em;
+    width: 100px;
+}
+/* @media screen and (max-width: 694px) {
+    .colorPicker{
+       width: 10%;
+       
+    }
+  }
+  @media screen and (max-width: 340px) {
+    .colorPicker{
+       width: 30%;
+       
+    }
+  } */

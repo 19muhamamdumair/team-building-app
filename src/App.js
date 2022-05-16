@@ -13,6 +13,9 @@ import MainRegistration from "./Components/Main Registration/MainRegistration";
 import AssignRole from "./Components/AssignUserRole/AssignRole";
 import Logout from "./Components/Logout/Logout";
 import SplashScreen from "./Components/SplashScreen/SplashScreen";
+import UpdateTeam from "./Components/Teams/Team/UpdateTeam/UpdateTeam";
+import FacebookLogin from "./Components/Login/SocialMediaLogin/FacebookLogin/Facebook";
+import Facebook from "./Components/Login/SocialMediaLogin/FacebookLogin/Facebook";
 function App() {
   return (
     <Routes>
@@ -21,6 +24,7 @@ function App() {
       <Route path="/myTeam" element={<Members />} />
       <Route path="/add-member" element={<NewMember/>}/>
       <Route path="/create-team" element={<CreateTeam/>}/>
+      <Route path="/update-team" element={<UpdateTeam/>}/>
       <Route path="/todo" element={<Todo/>}/>
       <Route path="/user-role" element={<UserRole/>}/>
       <Route path="/login" element={<Login/>}/>
@@ -28,6 +32,7 @@ function App() {
       <Route path="/assign-role" element={<AssignRole/>}/>
       <Route path="/logout" element={<Logout/>}/>
       <Route path="/loading..." element={<SplashScreen/>}/>
+      <Route path="/facebook-login" element={<Facebook/>}/>
     </Routes>
   );
 }

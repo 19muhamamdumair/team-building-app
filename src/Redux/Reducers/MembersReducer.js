@@ -59,7 +59,7 @@ const initialState = {
       last_name: "Umair",
       roleId: [1],
       email: "umair@gmail.com",
-      team: [2, 4],
+      team: [1,2,3,4],
     },
     {
       user_id: uuidv4(),
@@ -92,7 +92,7 @@ const initialState = {
       last_name: "Sharukh",
       roleId: [1],
       email: "sharukh@email.com",
-      team: [1, 2, 3, 4],
+      team: [1],
     },
     {
       user_id: uuidv4(),
@@ -111,9 +111,9 @@ const initialState = {
       password: "umair123",
       member_id: 1014,
       first_name: "Muhammad",
-      last_name: "Umair",
+      last_name: "Umer",
       roleId: [3],
-      email: "umair19@email.com",
+      email: "umer@email.com",
       team: [3],
     },
   ],
@@ -131,7 +131,7 @@ const MembersReducer = (state = initialState, action) => {
           last_name: action.payload.lastName,
           member_id: uuidv4(),
           // email: action.payload.email,
-          roleId: [...member.roleId],
+          // roleId: [...member.roleId],
           // team: [...state.members.team, action.payload.teamId],
         });
       } else {
@@ -169,7 +169,7 @@ const MembersReducer = (state = initialState, action) => {
     ); //finding user
     changeDoc = {
       ...changeDoc,
-      team: [...changeDoc.team, ...action.payload.teamId],
+      team: [...changeDoc.team, action.payload.teamId],
     }; //inserting roleId array
     changeDoc.team = removeDuplicates(changeDoc.team);
     const index = state.members.findIndex(
@@ -181,7 +181,9 @@ const MembersReducer = (state = initialState, action) => {
     return { ...state, members: newMembers };
   }
   if (action.type === actionTypes.CREATE_USER) {
+    
     return {
+    
       ...state,
       members: [
         ...state.members,
@@ -195,10 +197,10 @@ const MembersReducer = (state = initialState, action) => {
           last_name: "",
           // email: action.payload.email,
           roleId: null,
-          team: [...state.members.team, action.payload.teamId],
+          team: [],
         },
       ],
-    };
+    }
   }
 
   return state;

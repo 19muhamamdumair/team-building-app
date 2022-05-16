@@ -33,7 +33,7 @@ const Navbar = () => {
     {
       linkName: "/registeration",
       title: "Register Yourself",
-    },
+    }
   ];
   const AdminDropdownLinks = [
     {

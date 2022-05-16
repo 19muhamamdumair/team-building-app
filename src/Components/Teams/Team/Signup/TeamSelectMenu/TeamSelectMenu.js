@@ -1,6 +1,6 @@
 import React from 'react'
 import Option from '../Option'
-const SelectMenu = ({selectTitle,list,handleChange}) => {
+const SelectMenu = ({selectTitle,list,handleChange,flag}) => {
   return (
     <div className="input-box">
     <span className="details">{selectTitle}</span>
@@ -12,7 +12,8 @@ const SelectMenu = ({selectTitle,list,handleChange}) => {
         {selectTitle}
       </option>
       {list.map((team) => (
-        <Option teamName={team.name} key={team.id} id={team.id} />
+        //team can be color or team name
+        <Option   teamName={`${flag === "teamName" ? team.name : team}`} key={team.id} id={team.id} />
       ))}
     </select>
   </div>

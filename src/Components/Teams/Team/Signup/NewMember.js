@@ -22,8 +22,8 @@ const SignUp = () => {
     lastName: "",
     email: "",
     teamName: "",
-    teamId: [],
-    roleId: [],
+    teamId: null,
+    // roleId: [],
     memberCount: 0,
   });
   const [teamFlag,setTeamFlag]=useState(false)
@@ -32,26 +32,36 @@ const SignUp = () => {
   const roles = useSelector((state) => state.role.userRoles);
   const users = useSelector((state) => state.member.members);
   const changeTeam = (e) => {
-    let arr = [...data.roleId];
-    
     teams.find((team) => {
       if (team.name === e.target.value) {
-        arr.pop()
-        arr.push(team.id);
+     
         setData({
           ...data,
-          teamId: arr,
+          teamId: team.id,
         });
         setTeamFlag(true)
       }
     });
+    // let arr = [...data.roleId];
+    
+    // teams.find((team) => {
+    //   if (team.name === e.target.value) {
+    //     arr.pop()
+    //     arr.push(team.id);
+    //     setData({
+    //       ...data,
+    //       teamId: arr,
+    //     });
+    //     setTeamFlag(true)
+    //   }
+    // });
   };
-  const changeRole = (eid) => {
-    let arr = [...data.roleId];
-    arr.push(eid);
+  // const changeRole = (eid) => {
+  //   let arr = [...data.roleId];
+  //   arr.push(eid);
 
-    setData({ ...data, roleId: arr });
-  };
+  //   setData({ ...data, roleId: arr });
+  // };
   const changeFirstName = (e) => {
     setData({
       ...data,
@@ -96,7 +106,7 @@ const SignUp = () => {
       if (flag === true) {
         dispatch(MemberAction.createMember(data));
         dispatch(MemberAction.assignTeam(data))
-        dispatch(MemberAction.incrementCounter(data));
+        setTimeout(()=> dispatch(MemberAction.incrementCounter(data)),2000)
         dispatch(RoleAction.incrementRoleMembers(data));
       } else {
         alert("Enter Correct Email")
@@ -221,6 +231,7 @@ const SignUp = () => {
               selectTitle="Select Team"
               list={teams}
               handleChange={changeTeam}
+              flag="teamName"
             />
             {/* <RoleSelectCheckbox
               selectTitle="Select Role"

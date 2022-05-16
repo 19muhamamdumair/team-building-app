@@ -9,6 +9,7 @@ import "./Login.css";
 import TextField from "./TextField";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import SocialMediaLogin from "./SocialMediaLogin/SocialMediaLogin";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
@@ -22,7 +23,6 @@ const Login = () => {
     setPassword(e.target.value);
   };
   const submit = (e) => {
-
     let flag = true;
 
     users.map((user) => {
@@ -30,7 +30,7 @@ const Login = () => {
         flag = false;
         sessionStorage.setItem("user_name", userName);
         sessionStorage.setItem("password", password);
-     
+
         setTimeout(navigateMyTeam, 2000);
       }
     });
@@ -41,12 +41,12 @@ const Login = () => {
       setTimeout(navigateLoading, 0);
     }
   };
-  const navigateLoading=()=>{
-    navigate("/loading..."); 
-  }
-  const navigateMyTeam=()=>{
-    navigate("/myTeam"); 
-  }
+  const navigateLoading = () => {
+    navigate("/loading...");
+  };
+  const navigateMyTeam = () => {
+    navigate("/myTeam");
+  };
 
   return (
     <>
@@ -72,6 +72,7 @@ const Login = () => {
 
           <form>
             <div className="user-details">
+              <SocialMediaLogin/>
               {/* <Form> */}
               <TextField
                 label="Username"

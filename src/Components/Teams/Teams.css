@@ -18,8 +18,12 @@ table {
 .button{
   overflow: hidden;
   background-color: #333;
- 
+  /* max-width: 720px; */
+    
+  margin: 0 auto;
+  margin-top: 1em;
 }
+
 .button a{
   /* float: left; */
   display: block;
@@ -33,3 +37,4 @@ table {
   background-color: #ddd;
   color: black;
 }
+

@@ -5,3 +5,9 @@ export const createTeam =(data)=>{
         payload:data
     }
 }
+export const updateTeam =(data)=>{
+    return{
+        type:ActionTypes.UPDATE_TEAM,
+        payload:data
+    }
+}

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import * as MemberAction from "../../../../Redux/Action/createTeam";
 import { v4 as uuidv4 } from "uuid";
@@ -10,12 +10,17 @@ import * as Yup from "yup";
 import TextField from "../../../Login/TextField";
 import InputForm from "../../../InputForm/InputForm";
 import { useFormik } from "formik";
+import SelectMenu from "../Signup/TeamSelectMenu/TeamSelectMenu";
+import ColorPicker from "../../../ColorPicker/ColorPicker";
 const CreateTeam = () => {
   const [data, setData] = useState({
     teamId: null,
     teamName: "",
     memberCount: 0,
+    teamColor:''
   });
+
+  const teamColors = useSelector((state) => state.team.colors); 
   const dispatch = useDispatch();
   const navigate=useNavigate()
   const formik = useFormik({
@@ -30,11 +35,14 @@ const CreateTeam = () => {
 
     onSubmit: () => {
       setData({
+        ...data,
         teamId: uuidv4(),
         teamName: formik.values.teamName,
         memberCount: 0,
       });
+      console.log(data)
     },
+   
   });
 
   useEffect(() => {
@@ -44,7 +52,13 @@ const CreateTeam = () => {
     }
   }, [data]);
 
- 
+ const changeColor=(e)=>{
+    setData({
+      ...data,
+      teamColor:e.target.value
+    })
+    console.log(e.target.value)
+ }
   return (
     <>
       <div>
@@ -73,7 +87,12 @@ const CreateTeam = () => {
                   ) : null}
                 </div>
               </div>
-
+              <ColorPicker  selectTitle="Select Team Color"  handleChange={changeColor}/>
+                    {/* <SelectMenu selectTitle="Select Team Color"
+              list={teamColors}
+              handleChange={changeColor}
+              flag="teamColor"
+              /> */}
               <Register
                 linkName={"/Teams"}
                 submit={formik.handleSubmit}
