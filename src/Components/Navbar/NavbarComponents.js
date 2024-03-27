@@ -7,7 +7,7 @@ const NavbarComponents = ({link}) => {
     <>
     <Link
       to={link.linkName}
-      className={`${link.linkName === "https://teammanagementdb.netlify.app" ? "active" : ""}`}
+      className={`${link.linkName === "/" ? "active" : ""}`}
     >
       {link.title}
     </Link>

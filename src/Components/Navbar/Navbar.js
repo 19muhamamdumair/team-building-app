@@ -9,7 +9,7 @@ const Navbar = () => {
   // };
   const links = [
     {
-      linkName: "https://teammanagementdb.netlify.app",
+      linkName: "/",
       title: "Home",
     },
     {
@@ -27,7 +27,7 @@ const Navbar = () => {
       title: "Todo List",
     },
     {
-      linkName: "https://teammanagementdb.netlify.app/login",
+      linkName: "/login",
       title: "Login",
     },
     {

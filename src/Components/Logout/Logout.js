@@ -13,7 +13,7 @@ const Logout = () => {
   const navigateLogin = () => {
  
    
-    navigate("https://teammanagementdb.netlify.app/login");
+    navigate("/login");
   };
   
   return (

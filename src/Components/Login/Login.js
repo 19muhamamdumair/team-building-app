@@ -91,7 +91,7 @@ const Login = () => {
               </Form> */}
             </div>
 
-            <Register linkName={"https://teammanagementdb.netlify.app"} submit={submit} linkTitle={"LOGIN"} />
+            <Register linkName={"/"} submit={submit} linkTitle={"LOGIN"} />
           </form>
         </div>
       </div>
