@@ -52,13 +52,13 @@ const initialState = {
     },
     {
       user_id: uuidv4(),
-      user_name: "umair",
-      password: "umair123",
+      user_name: "test",
+      password: "test123",
       member_id: 1009,
-      first_name: "Muhammad",
-      last_name: "Umair",
+      first_name: "test",
+      last_name: "test",
       roleId: [1],
-      email: "umair@gmail.com",
+      email: "test@gmail.com",
       team: [1,2,3,4],
     },
     {
