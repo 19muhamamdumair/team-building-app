@@ -83,7 +83,7 @@ const MainRegistration = () => {
       {
         setFlag(true)
         dispatch(UserAction.createUser(data));
-       navigate('/login')
+       navigate('https://teammanagementdb.netlify.app/login')
       
       }
 
@@ -164,7 +164,7 @@ const MainRegistration = () => {
           </div>
        
       
-          <Register linkName={"/login"} submit={formik.handleSubmit} linkTitle={"REGISTER"} />
+          <Register linkName={"https://teammanagementdb.netlify.app/login"} submit={formik.handleSubmit} linkTitle={"REGISTER"} />
         </div>
       </div>
     </>
