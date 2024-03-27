@@ -19,13 +19,13 @@ import Facebook from "./Components/Login/SocialMediaLogin/FacebookLogin/Facebook
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/Teams" element={<Teams />} />
-      <Route path="/myTeam" element={<Members />} />
-      <Route path="/add-member" element={<NewMember/>}/>
-      <Route path="/create-team" element={<CreateTeam/>}/>
-      <Route path="/update-team" element={<UpdateTeam/>}/>
-      <Route path="/todo" element={<Todo/>}/>
+      <Route path="https://teammanagementdb.netlify.app/" element={<Main />} />
+      <Route path="https://teammanagementdb.netlify.app/Teams" element={<Teams />} />
+      <Route path="https://teammanagementdb.netlify.app/myTeam" element={<Members />} />
+      <Route path="https://teammanagementdb.netlify.app/add-member" element={<NewMember/>}/>
+      <Route path="https://teammanagementdb.netlify.app/create-team" element={<CreateTeam/>}/>
+      <Route path="https://teammanagementdb.netlify.app/update-team" element={<UpdateTeam/>}/>
+      <Route path="https://teammanagementdb.netlify.app/todo" element={<Todo/>}/>
       <Route path="/user-role" element={<UserRole/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/registeration" element={<MainRegistration/>}/>
